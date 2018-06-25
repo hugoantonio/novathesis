@@ -18,26 +18,157 @@
   To view a copy of this license, visit \url{http://creativecommons.org/licenses/by-nc/4.0/}.
 \end{quotation}
 
-\section{A Bit of History} % (fold)
-\label{sec:a_bit_of_history}
+\section{Motivation and context} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\label{sec:motivation_and_content}
 
-The \novathesis\ was originally developed to help MSc and PhD students of the Computer Science and Engineering Department of the Faculty of Sciences and Technology of NOVA University of Lisbon (DI-FCT-NOVA) to write their thesis and dissertations Using \LaTeX.
+Throughout the history of mankind, plant pests and diseases have been numerous times responsible for large losses in society. From starvation, extinction of natural resources, negative impact on national/international resources or even deaths in a population.
+
+Nowadays, pests and diseases do not present such threats but still constitute a relevant problem since they result in substantial losses to farmers by reducing the value of their products: yield loss. 
+
+To reduce loss, there are two main approaches when handling plant pests and diseases.
+
+\begin{enumerate}
+	\item Prevention
+	\item Treatment
+\end{enumerate}
+
+Prevention is based on prediction models, field records or general management tactics that are applied before the plants are actually infected. Treatment, on the other hand, is all about deploying active substances to fight the already present disease. Prevention is obviously the preferable option when handling pest control since it represents no yield loss and no chemicals are used.
+
+This dissertation proposes a full pest monitoring system for outdoor farming fields. Several emerging pests will be studied, but more than a system to fight specific pests (or pests in specific cultures), a framework for the study and modelling of any pest will be developed. Ranging from data collection to a visual monitoring system, the system will be able to visually empower producers and farmers to make better decisions when protecting their assets from pests and diseases. A couple of research questions waiting to be answered are "Can we detect a geographic pattern in a pest's behaviour?" or "Can the data collection process of pest occurences be automated?". Pest and disease study is, obviously, a continuous field of study since human interaction keep disturbing nature's balance, which eventually leads to new mutations, migrations, species.
+
+During the development of this dissertation,  the project Fitoagro will be used as a case study of the methodology developed in this work. Fitoagro, as an Operational Group, consists of several partners with a common interest in a specific, practical innovation project: Pest Monitoring for the Apple and Pear Cultures in West Portugal. The people involved in the Operational Group come from a diverse combination of practical and scientific backgrounds (farmers, scientists, agri-business and others). Bellow are listed the main partners of the Fitoagro project.
+
+\begin{description}
+	\item [COTHN] Centro Operativo e Tecnológico Hortofrutícola Nacional
+	\item [FCT/UNL] Faculdade de Ciências e Tecnologia da Universidade Nova de Lisboa
+	\item [ISA] Instituto Superior de Agronomia
+	\item [ESAS] Escola Superior Agrária de Santarém
+	\item [ESACB] Escola Superior Agrária de Castelo Branco
+\end{description}
+
+Other entities such as agricultural cooperatives will also directly contribute as associates of the COTHN national entity, mainly in the data-collection process and the study of the biological species present in their very own farming fields. These above listed organizations work together on concrete and practical solutions to the following emerging pests (harmful ectoparasites):
+
+\begin{enumerate}
+	\item \textit{Stemphylium vesicarium}
+	\item \textit{Aphanostigma pyri}
+	\item \textit{Pseudococcus viburni / Planococcus ficus}
+	\item \textit{Dasineura pyri}
+\end{enumerate}
+
+Like above said, more relevant pests may be relevant to the study. To successfully study a species, a big amount of data is needed. That being said, if this farming season brings new pest species with a decent number of samples, they will be considered to the study.
+
+% section motivation_and_content (end) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Problem} % (fold) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\label{sec:problem}
+
+\subsection{A little bit of History} % (fold)
+\label{sec:problem_history}
+
+The first agricultural revolution came along during the advent of increased mechanization, from 1900 to 1930. Each farmer produced enough food to feed about 26 people during this time.
 %
-These student can easily cope with \LaTeX\ by themselves, and the only need some help in the bootstrap process to make their life easier.
-
-However, as the template spread out among the students from other degrees at FCT-NOVA, the demand for am easier-to-use template as grown.
+The 1990s prompted the Green Revolution with new methods of genetic modification, which led to each farmer feeding about 155 people.
 %
-And the template in its current shape aims at answering the expectations of those that, although they are not familiar with programming nor with markup languages, so still feel brave enough to give \LaTeX\ a try and rejoice with the beauty of the texts typeset by this system.
+It is expected that by 2050, the global population will reach about 9.6 billion, and food production must effectively double from current levels in order to feed every mouth. With new technological advancements in the agricultural revolution of precision farming, each farmer is expected be able to feed 265 people on the same acreage.
 
-% section a_bit_of_history (end)
+Digital agriculture is widely recognized as the third great revolution of modern agriculture. The introduction and implementation of mechanization (1900 to 1930) and genetic modification (1990 to 2005) are referred to as Ag 1.0 and Ag 2.0 respectively. Both revolutions drove efficiency, yield and profitability to levels previously unattainable, and are now conventional in developed countries across the world.
+
+While Ag 1.0 and Ag 2.0 definitely drove significant changes in agriculture, Ag 3.0 will be the most transformative and disruptive, not only on the farm, but across the entire agriculture and food value chain.
+
+\subsection{The ever going study of Pest}
+
+A Pest is any plant or animal detrimental to humans or human concerns including crops, livestock, and forestry. In its broadest sense, a pest is a competitor of humanity. Pests are usually categorized by taxon. Different taxonomies are usually studied by different branches of Biology. 
+
+The term "plant pest" has a specific definition in terms of the \textit{International Plant Protection Convention} and phytosanitary measures worldwide. A pest is any species, strain or biotype of plant, animal, or pathogenic agent injurious to plants or plant products. Plants may be considered pests themselves if an invasive species. These "plant pests" are often focus of study in Biology but, as the \textit{Theory of Evolution} clearly states, evolution is the change in the heritable characteristics of biological populations over successive generations. 
+
+Plant pests keep developing resistances against active substances used in the fields (pesticides). Pest species evolve pesticide resistance via natural selection: the most resistant specimens survive and pass their genetic traits to their offspring. Although the evolution of pesticide resistance is usually discussed as a result of pesticide use, it is important to keep in mind that pest populations can also adapt to non-chemical methods of control.
+
+Speciation (repeated formation of new species) leads to a hierarchical structure of the same species that developed specific traits for each culture it threatens. 
+
+These pest life cycles are also changing, arguably with temperate. So their first seasonal appearance is gradually evolving over time.
+
+All the above-mentioned factors contribute to the idea that pest control is still a problem, and Nature makes sure of that. In fact, it is a growing problem since yield loss accounted for pests has been growing year by year.
+
+\section{Objectives} % (fold) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\label{sec:objective}
+
+\subsection{Precision Agriculture}
+\label{sec:precision_agriculture}
+
+Precision Agriculture(PA) , Satellite Farming or Site-specific crop management (SSCM) is a key-component  of the third wave of modern agricultural revolutions (Ag 3.0). In it's essence, it is a farming management concept based on observing, measuring and responding to inter and intra-field variability in crops. Its main goal is to provide a decision support system for a whole farm management in order to optimize returns on inputs and, most importantly, preserving resources.
+
+Precision Agriculture offers the potential to fundamentally change agriculture's decision-making process. The use of large machinery and hired labour has caused many farmers to think of large fields as a basic management unit. Even though farmers know from experience that yields are higher in some parts of the field than in others, conventional farming management practices have focused on applying inputs in a uniform manner throughout the field extent. Information Technologies empower these farmers to obtain detailed information at a crop level, enabling them to efficiently manage their farm at these finer scales.
+
+The basic principle of precision farming is an exact positional controlling of fertilisation, growth levels, pest presence, risk estimate or any other relevant key-performance indicator with the accuracy of a few meters. The whole process requires a big amount of data to be collected which enables the control of the management process. The better the data collection method, the more resolution data will have, which allows for better conclusions to be taken.
+
+Precision farming is usually divided into the following steps:
+
+\begin{description}
+\item [Data Collection] Inter field systems collect data with a field-level of resolution. Increasing the number of sources provides a smaller scale analysis. Geolocating data sources enables the farmer to read a map of his property (henceforth called soil map) with the most important crop variables.
+\item [Variables] The data collected can measure different things. Usually, climatic conditions (hail, drought, rain, etc.), soils (texture, depth, nitrogen levels), cropping practices (no-till farming), weeds and disease. Permanent indicators as weather stations, provide information about the main environmental constants. Point indicators allow them to track a crop’s status, i.e., to see whether diseases are developing, if the crop is suffering from water stress, nitrogen stress, or lodging, whether it has been damaged by ice and so on. This information may come from weather stations and other sensors (soil electrical resistivity, detection with the naked eye, satellite imagery, etc.). Soil resistivity measurements combined with soil analysis make it possible to measure moisture content. Soil resistivity is also a relatively simple and cheap measurement.
+\item [Strategies] Once with soil maps, Strategies can be either predictive (Predictive Approach), where   based on history and static features of the field, the farmer takes decisions. The Control Approach, on the other hand, collects data regularly during the crop cycle to provide a better temporal resolution. Decisions may be based on decision-support models and/or the farmer.
+\item [Implementing practices] If some decisions are to be trusted to an algorithm, Variable Rate Technology can help to administer variable rates of pesticides(biological or chemical), nutrients, water, etc. through Variable Rate Application (VRA). Map Based and Sensor Based VRA present two very different paths.
+\end{description}	
+
+These simple four steps present a methodology for the continuous management of the farming field. [IMAGE THIS]
+
+The objective is to combine the methodology from Precision Agriculture with the Pest Control, more precisely study the available options for Data Collection from different sources (several variables), regarding cost, efficiency, resolution, limitations while focusing on the needs of the Pest study. 
 
 
-\section{Disclaimer} % (fold)
-\label{sec:disclaimer}
+% section problem_and_objective (end)
 
-It is up to you, the student, to read the FCT and/or NOVA regulations on how to format and submit your MSc or PhD dissertation.  
+\section{Major Contributions} % (fold) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\label{sec:contributions}
 
-This template is endorsed by the FCT-NOVA and even linked from its web pages, but it is not an official template.
-%
-This template exists to make your life easier, but in the end of the line you are accountable for both the looks and the contents of the document you submit as your dissertation.
+\subsection{Combining Multispectral Satellite imagery and Weather Stations}
+\label{sec:satellite_and_weather_stations}
+
+Satellite information is becoming freely available and their functionality is constantly evolving to provide richer information from the earth surface. At this moment, free satellite data has low resolution, a reduced number of features and some exporting/data access limitations. The paid satellite services, on the other hand, generated rich multispectral imagery available via stream (very high temporal resolution) and with an accuracy of less than a meter. The big, and probably one of the few, disadvantage of Satellite is meteorologic conditions. Clouds will break the line-of-sight between the satellite and the crops, resulting in temporal gaps within, supposedly continuous data sources.
+
+Weather Stations, even though they require an initial investment by the farmer, provide continuous streams of data with no holes. They could also provide better readings of meteorologic conditions such as temperature, humidity etc.
+
+The mixing of both methods may help farmers who want to use the upcoming mentioned framework without relying on having their own weather stations. The system developed for the FitoAgro study case may train its model from weather stations and compare with the readings of the Satellite imagery.
+
+\subsection{State of the Art as a Review of Recent Efforts}
+\label{sec:review_recent_efforts}
+
+The State of the Art presents a good contribution itself. By organising and cathegorising different techniques by area, culture and pest taxonomy it is expected to achieve a detailed analysis of the recent trends in pest control: their pros and cons, cost, resolution, limitations, efficiency and maintenance.
+
+\subsection{A framework for pest study}
+\label{sec:pest_study_framework}
+
+The study of a Pest needs specific data depending on the pest being analyzed. Solutions for proper tracking the species mentioned on \ref{sec:motivation_and_content} will be developed for the FitoAgro project. This means that the framework will be used directly by 5000 farmers spread across 30 agricultural organizations (COTHN associates) and, hopefully, many more can use the same framework independent of the crop culture or geographic location. The case study will be on specific cultures and location but the framework should be ready to scale out this "Pest Study" to a global level if needed. This pest control monitoring is not available to all farmers due to the cost of registering all the data. Since some pest species require specific equipment to be read/analyzed, some design thinking techniques will be used to ease out the data collection process into, hopefully, an effortless process for the farmer. 
+
+\subsection{Mapping the field digitally}
+\label{sec:mapping_the_field}
+
+A big component of the framework described above is the end-user analysis of the data being processed by the system. Visualization is of the utmost importance when analysing the data, so, in order to communicate the geolocated data that is to be collected, we will develop a specific soil map visualization that tackles all the necessities of the Pest Control domain. The focus will be on minimizing the complexity of the work so that, the farmer intuitively understands his farm at a glance. In a broad sense, Design and Usability meet big data.
+
+
+
+
+
+
+\section{Document Structure} % (fold) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\label{sec:document_structure}
+
+\begin{enumerate}
+	\item Introduction
+	\begin{enumerate}
+		\item Motivation and Context
+		\item Problem
+		\item Objectives
+		\item Major Contributions
+		\item Document Structure
+	\end{enumerate}
+	\item Detailed Problem - Details of the problem briefly described in the Introduction.
+	\item State of the Art - Previous works in this domain and their solutions. Organize by sections, keywords, results and exclusion criteria.
+	\item Approach - What is going to be implemented, why and how.
+	\item The framework - Explaining the methodology, beneficts and limitations.
+	\item Development Planning - General planning of the development of the FitoAgro solution according to the framework developed.
+	\item Design and Implementation - Specific design choices and implementation details.
+	\item Testing and fixes - A/B Testing process description of the proposed framework \textit{in situ}.
+	\item Conclusions - General conclusions, final remarks and future work.
+\end{enumerate}
 
