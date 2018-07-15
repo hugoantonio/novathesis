@@ -5,296 +5,393 @@
 %%
 %% Chapter with the template manual
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{ThesisDIFCTNL User's Manual}
-\label{cha:users_manual}
+\chapter{Problem Details}
+\label{cha:problem}
 
-% ================
-% = Introduction =
-% ================
-\section{Introduction} % (fold)
-\label{sec:introduction}
+This chapter presents in detail the problem faced in this dissertation. It starts by providing the reader with an overview of the agricultural scene, field organisation, the default method for data collection, main economically harmful pests, plants and environmental variables. In the end, it is explained the possibility of full-automation for the biological analysis but the main focus is pseudo-automated data collection: the user has to read the biological variables and register them in an easy and straightforward way.
 
-{\LARGE \textbf{~\\These instructions are outdated! Please see also the “template.tex” file!\\}}
+\section{Agricultural Domain} % (fold)
+\label{sec:agricultural_domain}
 
-This chapter describes how to use the \LaTeX\ \novathesis\ template (and the “\novathesisclass” class file).
+Agriculture is split into two main groups: Indoor and outdoor. Outdoor is the default; an open air field used to grow plants and trees. Indoor is the more recent approach where an ideal ecosystem is created for the development of plants(usually low species).
 
-Let's start with some simple suggestions:
+Indoor agriculture presents a better opportunity for precision agriculture since the whole growing process is digitally controlled: raditation, water, fertilizer, temperature etc. Vertical Agriculture is growing fast since it provides the best ratio of plants per squared meter. Vertically alligned trays covered in fertile soil can incorporate sensors directly in their design, Internet connectivity is not a problem, rotation of trays can be used for a single multispectral analysis machine to register the growth of all plants, etc. 
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\linewidth]{hor_ver_farming}
+  \caption{Vertical farming increases the volume of production per squared meter.}
+  \label{fig:horizontal_vertical_farming}
+\end{figure}
+
+With these many points in favour, Indoor Vertical Farming is still not the most common farming methodology. Mostly due to the initial costs and evolving/unstable technology, farmers opt by growing their fields the traditional way. This does not mean that farmers fear technology but progress is slow, especially within the more traditional and manual labour communities. 
+
+A farm is a place where agricultural activities take place. For organisational purposes, farms are usually split into plots which provide the first level of organisation.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.5\linewidth]{field_with_plots}
+  \caption{Vale Pragrança: a farming field from the FitoAgro project. Three plots are visible in the satellite image.}
+  \label{fig:field_with_plots}
+\end{figure}
+
+For a plot, a single type of plant is installed. During this dissertation, the focus will be on Royal Gala Apple (Malus pumila) and Pear "Rocha" (Pyrus communis) crops.
+
+\begin{figure}[htbp]
+  \centering
+  \subcaptionbox{\textit{Malus "Royal Gala"}\label{fig:royal_gala}}%
+    {\includegraphics[width=0.5\linewidth]{royal_gala}}%
+  \hfill  
+  \subcaptionbox{\textit{Pyrus Communis "Rocha"}\label{fig:pear_rocha}}%
+    {\includegraphics[width=0.4\linewidth]{pera_rocha}}%
+  \caption{Crops to be monitored during this dissertation}
+  \label{fig:crops_studied}
+\end{figure}
+
+\section{Spreadsheets} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\label{sec:problem_spreadsheets}
+
+Integrated production by farmers requires certain obligations and responsibilities. Some countries have strict regulation on agriculture while others provide no guidelines for cooperation on agricultural activity. Portugal provides on the DGADR ("Direção-Geral de Agricultura e Desenvolvimento Rural") website a field notebook template for the most common plant cultures grown in Portugal.
+
+These notebooks track the most important things happening during the production cycle: 
 
 \begin{enumerate}
-  \item No! You don't have to use this template to write your thesis.  You don't even have to use \LaTeX.  However, writing a thesis is serious stuff, and which tool you shall use to write it is not a decision to make lighthearted.
-  \item \LaTeX\ is hard enough by itself.  This template aims at making your life easier, but not easy. If you choose to use this template to write your thesis, you are very welcome.  However, don't expect me to provide you help with \LaTeX.  Look for help with your friends (you have some friends, don't you?), or search the web, or try even to read some book(s) on \LaTeX. In the end you will certainly find the experience rewarding.
-  \item So, don't forget, when you come to the point of “\emph{How do I do this with \LaTeX?}” look for help!  Google is your best friend. 
-  \item If you believe the difficulty is related with the \novathesis\ template itself (and not with \LaTeX), please \textbf{do not} send me an email asking for help.  Please look for help in the \novathesis\ Google Group (URL) and the \novathesis\ Facebook group (URL).  If you can't find help there from previous posts/messages, then post your own question. Hopefully someone will answer you.
+	\item Phenological Growth Stages of the crop
+	\item Observations regarding the main enemies of the crop
+	\item Dates of the treatments performed on the field and the phytopharmaceutical products used
+	\item Production system data (pruning, watering, fertilising and harvesting)
 \end{enumerate}
 
-Now, let's go to a major issue for Windows users.  Characters have to be encoded in files as numbers, and that is how character encodings were born. ASCII and EBCDIC standards are long lost in the past.  The world now uses UTF-8.  Well, not all the world… Windows is still stick in its \emph{codepages}, and “latin1” is what windows uses as the codepage for Western Europe. This messes up with the template. Please be sure you use an editor with UTF-8 support.  \emph{Go to the preferences/options/… of your text editor and set up its default file encoding as UTF-8.}
+Field notebooks were once used on paper, but nowadays, since teams take turns working on the fields, most agronomists and farmers upload their paper records to online collaborative spreadsheets. 
 
-% section introduction (end)
+\subsection{Phenological Growth Stages}
+\label{sec:problem_spreadsheets_phenological}
 
-% ====================
-% = Folder Structure =
-% ====================
-\section{Folder Structure} % (fold)
-\label{sec:folder_structure}
+Phenology is the study of periodic plant and animal life cycle events and how these are influenced by seasonal and interannual variations in climate. In the context of this dissertation: the growth rate of a plant and how it is influenced by temperature, light and humidity. 
 
-The \novathesis\ template is organized into files and folders. At the main level it includes the following files and folders:
+Precise tracking of the phenological stage of a plant is of the utmost importance since some pests, diseases and products may depend on the current stage.
 
-\noindent
-\begin{tabularx}{\linewidth}{>{\ttfamily}l>{\itshape}l>{\upshape}X}
-novathesis.cls     & file    & 
-The main class file. It will include additional files from \texttt{novathesis-files} folder. 
-\\ 
-template.tex      & file    & 
-The main user file. Use this file as the main file for your thesis. 
-\\
-bibliography.bib  & file    & 
-An example of a bibliography file. You may have has many as you want. \\
-template.pdf      & file    & 
-A possible result of applying pdf\LaTeX\ to the \texttt{template.tex} file. The template supports multiple types of documents (e.g., MSc dissertation, PhD thesis, …) and multiple Schools (e.g., FCT-NOVA, FCSH-NOVA, IST-UL, FC-UL, …) and each will produce different results.
-\\
-Chapters          & folder  & Examples of thesis chapters. Replace them with your own chapters. 
-\\
-Examples          & folder  & Some more examples of the use of the template for different document types and Schools. 
-\\
-Scripts           & folder  & Some (possibly useful) scripts for Unix-based systems (Linux, Mac OSx). If you are a windows user, ignore this folder (you may safely delete it if you want). 
-\\
-novathesis-files   & folder  & 
-Additional files for the \novathesisclass\ file.  Unless you know what you are doing, avoid messing up with the files and folders inside this folder (except for deleting the unused Schools, see below). 
-\\
-\end{tabularx}
+Different plant species have different phenological stages. Since this work focuses on Pome tree species, namely Apple (Malus Pumila) and Pear (Pyrus Communis) trees, the respective phenological stages of growth are illustrated on \ref{fig:pheno_apple_raw} and \ref{fig:pheno_pear_raw}.
 
-The \texttt{novathesis-files} folder contains additional files and folders that complement the main \novathesisclass\ file.  These are:
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\linewidth]{pheno_apple_raw}
+  \caption{Phenological Stages of Malus Pumila - by TheJentschLab \cite{TheJentschLab}}
+  \label{fig:pheno_apple_raw}
+\end{figure}
 
-\noindent
-\begin{tabularx}{\linewidth}{>{\ttfamily}l>{\itshape}l>{\upshape}X}
-README.txt      & file    &
-A file that should be read!  :) 
-\\
-fix-babel.clo   & file    &
-Simple fixes to the \texttt{babel} package.
-\\
-lang-text.clo   & file    &
-Translations of important strings used in the template.  Currently fully supported are Portuguese and English, but French is on the way.  If you add translations for your own language, please be so kind and send them to me. Thank you!
-\\
-options.clo     & file    &
-Processing of \novathesisclass\ options.  \emph{Don't mess with this!}
-\\
-packages.clo    & file    &
-Additional packages to be loaded into the \novathesis\ template. \emph{You should not mess with this!}
-\\
-spine.clo       & file    &
-This file is loaded only if the option \texttt{spine=true}, and includes the typesetting of the book spine.
-\\
-ChapStyles      & folder  &
-Contains a lot of files, one for each chapter style.  If you really know what you are doing, you may add your own chapter style here.
-\\
-FontStyles      & folder  &
-Contains a few files, one for each set of fonts (main text font, chapter font, section font, subsection font, etc).  If you really know what you are doing, you may add your own set here.
-\\
-Schools         & folder  &
-Configuration files for each school.  This folder is organized into subfolders, one for each university.  \emph{You may safely delete all the subfolders except the one for your University.}  Then open the subfolder of your University and \emph{you may safely delete all the subfolders except the one for your School/Faculty}.
-\\
-\end{tabularx}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=1\linewidth]{pheno_pear_raw}
+  \caption{Phenological Stages of Pyrus Communis - by TheJentschLab \cite{TheJentschLab}}
+  \label{fig:pheno_pear_raw}
+\end{figure}
 
-As stated above, the \texttt{Schools} folder contains per-university folders and per-school (faculty) subfolders.  Currently these are the available folders:
 
-\noindent
-\begin{tabularx}{\linewidth}{>{\ttfamily}r@{~/~}>{\ttfamily}l>{\itshape}l>{\upshape}X}
-ul     & ist    & folder  & 
-The folder for the \href{http://www.tecnico.ulisboa.pt}{\emph{Instituto Superior Técnico}} of the \emph{University of Lisbon}.
-\\
-nova    & fcsh   & folder  & 
-The folder for the \href{http:www.fcsh.unl.pt}{\emph{Faculty of Human and Social Sciences}}  of the \emph{NOVA University of Lisbon}.
-\\
-nova    & fct    & folder  & 
-The folder for the \href{http:www.fct.unl.pt}{\emph{Faculty of Sciences and Technology}} of the \emph{NOVA University of Lisbon}.
-\\
-nova    & novaims    & folder  & 
-The folder for the \href{http:www.novaims.unl.pt}{\emph{Information and Management School}} of the \emph{NOVA University of Lisbon}.
-\\
-\end{tabularx}
+\subsection{Enemies}
+\label{sec:problem_spreadsheets_enemies}
 
-% section folder_structure (end)
+As mentioned in \ref{sec:digital_mapping_framework}, farming fields have, by default, ideal conditions for the development of life. This attracts new species to the farming field, which usually directly impacts the economic viability of the yield. They can compromise the appearance of the product which affects the final consumer and, therefore, translates into a cut on the income of the farming company.
 
-% ===================
-% = Package options =
-% ===================
-\section{\novathesisclass\ Class Options} % (fold)
-\label{sec:package_options}
+Enemies can be of three major types:
+\begin{description}
+	\item [Parasitic plants] Plants growing in non-desirable places that derive some or all of its nutritional requirement from another living plant (or from resources allocated to it)
+	\item [Pests] Animal organisms that parasitise the plants.  Usually ectoparasites such as mites, insects, molluscs, vertebrates or any other life form that consumes plant tissue.
+	\item [Diseases] Caused by pathogens (infectious organisms) and environmental conditions (physiological factors). Organisms that cause infectious disease can be fungi, bacteria, viruses etc.
+\end{description}
 
-The \novathesis\ class can be customized with the options listed below.
+Farmers register major occurrences of any of these three enemy types on the field-notebooks.
 
-\newcommand{\classoption}[3]{\textbf{#1=OPT}\qquad #2\\\qquad\emph{#3}\\}
+\subsection{Treatments and Control}
+\label{sec:problem_spreadsheets_control}
 
-\noindent
-\begin{ctabular}{@{}p{\linewidth}@{}}
-  \toprule
-  \classoption{docdegree}%
-    {phd(*), phdplan, phdprop, msc, mscplan, bsc}%
-    {The type of the document: PhD Thesis (default), PhD Plan, PhD Proposal, MSc Disseration, MSc Plan, BSc Report}
-    \midrule
-  \classoption{school}%
-		{nova/fct(*), nova/fcsh, nova/ims, ul/ist, ul/fc}%
-    {The name of the school. This option changes the typesetting of the cover and some School specific formating, like margins, fonts, paragraph spacing and indentation, etc…}
-    \midrule
-  \classoption{lang}%
-    {en(*), pt}%
-    {The main language for the document.  Currently only Portuguese and English are supported.  Other languages are expected to be support in forthcoming versions.}
-    \midrule
-  \classoption{fontstyle}%
-    {bookman, charter, fourier, kpfonts(*), mathpazo1, mathpazo2, newcent}%
-    {The font set to be used in the document.  Please note that a font set include definitions for the main text, headings, maths, etc.}
-    \midrule
-  \classoption{chapstyle}%
-    {bianchi, bluebox, brotherton, dash, default, elegant(*), ell, ger, hansen, ist, jenor, lyhne, madsen, pedersen, veelo, vz14, vz34, vz43}%
-    {The chapter style, i.e., the look of the chapter beginning.}
-    \midrule
-  \classoption{converlang}%
-    {en, pt(*)}%
-    {The language to be used when typesetting the cover page.}
-    \midrule
-  \classoption{otherlistsat}%
-    {front(*), back}%
-    {Where to put the other lists besides the table of contents. The default is (\texttt{front}) before the main text.  But some scientific areas prefer them at the end of the document (\texttt{back}), just before the Appendixes.}
-    \midrule
-  \classoption{aftercover}%
-    {true, false(*)}%
-    {Include or don't include the contents of the “\texttt{aftercover}” file. The default is for this file to be ignored (if if it exists).}
-    \midrule
-  \classoption{linkscolor}%
-    {darkblue(*), black}%
-    {The color for all the hyperlinks in the PDF file.  The “\texttt{media=paper}” option (see below) will override this option to “\texttt{black}”}
-    \midrule
-  \classoption{spine}%
-    {true, false(*)}%
-    {Generate the book spine and the last page in the PDF.}
-    \midrule
-  \classoption{biblatex}%
-    {OPT=\{list of options for \texttt{biblatex}\}}%
-    {Customize \texttt{biblatex}, the bibliography management system used in this class. Probably you will want to change the value of the \texttt{biblatex} “\texttt{style}” option. For other customizations of \texttt{biblatex} check its manual.}
-    \midrule
-  \classoption{memoir}%
-    {OPT=\{list of options for \texttt{memoir}\}}%
-    {Customize the base class \texttt{memoir}. The \texttt{memoir} manual should be the first document to be consulted when looking for “\textbf{how can I do this?}” You may wnat to change the base font size from 11pt to a smaller (10pt) or larger (12pt) size.  Also, remember to change the “\texttt{draft}” to final when your document is finished.}
-    \midrule
-  \classoption{media}%
-    {screen(*), paper}%
-    {Behavior to be customized in the school options/configuration. Expected definitions for screen are: left and right margins are equal and use colored links. Expected definitions for paper are: left and right margins are different and use black links.}
-    \bottomrule
-\end{ctabular}
+Farmers deal with different enemies in different ways. 
 
-\section{Additional considerations about the class options} % (fold)
-\label{sec:additional_considerations}
+\begin{description}
+	\item [Herbicide] Herbicides, also commonly known as weedkillers, are chemical substances used to control unwanted plants. Non-selective herbicides kill all plant material with which they come into contact (mostly used for construction). Selective herbicide control specific weed species, while leaving the desired crop relatively unharmed.
+	\item [Pesticide] Used to control animal organism life forms.
+	\begin{description}
+		\item [Insecticide] Insecticides are substances used to kill insects. They include ovicides and larvicides used against insect eggs and larvae, respectively.
+		\item [Acaricide] For acari pests. Acari (or Acarina) are a taxon of arachnids that contains mites and ticks.
+	\end{description}
+	\item [Fungicide] Active substance(chemical compound) or biological organism used to kill or inhibit fungi or fungal spores (diseases).
+\end{description}
 
-In this section we will provide some additional considerations about some of the customizations available as class options.
+\section{Pests}
+\label{sec:problem_pests}
 
-\subsection{The main language} % (fold)
-\label{sub:the_main_language}
-
-The choice of the main language with the option “\texttt{lang=OPT}” affects:
+From the Fitoagro project, it was possible to sample the most harmful pests to the Royal Gala Apple and the Pear "Rocha"  Tree species.
 
 \begin{itemize}
-	\item \textbf{The order of the summaries.} First is printed the abstract in the main language and then in the foreign language. This means that if your main language for the document in English, you will see first the “abstract” (in English) and then the “resumo” (in Portuguese). If you switch the main language for the document for Portuguese, it will also automatically switch the order of the summaries to “resumo” and then “abstract”.
-	\item \textbf{The names for document sectioning.} E.g., ``Chapter'' vs.\ ``Capítulo'', ``Table of Contents'' vs.\ ``Índice'', ``Figure'' vs.\ ``Figura'', etc.
-	\item \textbf{The type of documents in the bibliogrpahy.} E.g., ``Technical Report'' vs.\ ``Relatório Técnico'', ``PhD Thesis'' vs.\ ``Tese de Doutoramento'', etc.
-\end{itemize} 
-
-No mater which language you chose, you will always have the appropriate hyphenation rules according to the language at that point. You always get Portuguese hyphenation rules in the ``Resumo'', english hyphenation rules in the ``Abstract'', and then the main language hyphenation rules for the rest of the document.
-
-% subsection the_main_language (end).
-
-% section additional_consideration (end)
-
-
-\subsection{Class of Text} % (fold)
-\label{sub:class_of_text}
-
-You must choose the class of text for the document. The available options are:
-
-\begin{enumerate}
-	\item \textbf{bsc} --- BSc graduation report.
-	\item \textbf{*mscplan} --- Preparation of MSc dissertation. This is a preliminary report graduate students at DI-FCT-NOVA must prepare to conclude the first semester of the two-semesters MSc work. The files specified by \verb!\dedicatoryfile! and \verb!\acknowledgmentsfile! are ignored, even if present, for this class of document.
-	\item \textbf{msc} --- MSc dissertation.
-	\item \textbf{phdprop} ---  Proposal for a PhD work. The files specified by \verb!\dedicatoryfile! and \verb!\acknowledgmentsfile! are ignored, even if present, for this class of document.
-	\item \textbf{prepphd} ---  Preparation of a PhD thesis. This is a preliminary report PhD students at DI-FCT-NOVA must prepare before the end of the third semester of PhD work. The files specified by \verb!\dedicatoryfile! and \verb!\acknowledgmentsfile! are ignored, even if present, for this class of document.
-	\item \textbf{phd} --- PhD dissertation.
-\end{enumerate}
-% subsection class_of_text (end)
-
-% ============
-% = Printing =
-% ============
-\subsection{Printing} % (fold)
-\label{sub:printing}
-
-You must choose how your document will be printed. The available options are:
-\begin{enumerate}
-	\item \textbf{oneside} --- Single side page printing.
-	\item \textbf{*twoside} --- Double sided page printing.
-\end{enumerate}
-% subsection printing (end)
-
-% =============
-% = Font Size =
-% =============
-\subsection{Font Size} % (fold)
-\label{ssec:font_size}
-
-You must select the encoding for your text. The available options are:
-\begin{enumerate}
-	\item \textbf{11pt} --- Eleven (11) points font size.
-	\item \textbf{*12pt} --- Twelve (12) points font size. You should really stick to 12pt\ldots
-\end{enumerate}
-% subsection font_size (end)
-
-% =================
-% = Text encoding =
-% =================
-\subsection{Text Encoding} % (fold)
-\label{ssec:text_encoding}
-
-You must choose the font size for your document. The available options are:
-\begin{enumerate}
-	\item \textbf{latin1} --- Use Latin-1 (\href{http://en.wikipedia.org/wiki/ISO/IEC_8859-1}{ISO 8859-1}) encoding.  Most probably you should use this option if you use Windows;
-	\item \textbf{utf8} --- Use \href{http://en.wikipedia.org/wiki/UTF-8}{UTF8} encoding.    Most probably you should use this option if you are not using Windows.
-\end{enumerate}
-% subsection font_size (end)
-
-% ============
-% = Examples =
-% ============
-\subsection{Examples} % (fold)
-\label{ssec:examples}
-
-Let's have a look at a couple of examples:
-
-\begin{itemize}
-	\item Preparation of PhD thesis, in portuguese, with 11pt size and to be printed single sided (I wonder why one would do this!)\\
-	\verb!\documentclass[prepphd,pt,11pt,oneside,latin1]{thesisdifct-nova}!
-	\item MSc dissertation, in english, with 12pt size and to be printed double sided\\
-	\verb!\documentclass[msc,en,12pt,twoside,utf8]{thesisdifct-nova}!
+	\item \textit{Dasineura pyri (Bouché)} - Pear leaf-curling midge
+	\item \textit{Aphanostigma pyri} - Pear phylloxera, Pear bark aphid
+	\item \textit{Cydia pomonella} - Codling moth
+	\item \textit{Quadraspidiotus perniciosus} - San José scale, Pernicious scale, California scale
 \end{itemize}
-% subsection examples (end)
 
-\section{How to Write Using \LaTeX} % (fold)
-\label{sec:how_to_write_using_latex}
+This section \ref{sec:problem_pests} is heavily based on the Pest Encyclopedia Hyppz. Hypzz is an encyclopaedic database of 297 records describing important pests (insects, mites, rodents, nematodes, gastropods and small vertebrates) in Western Europe.
 
-Please have a look at Chapter~\ref{cha:a_short_latex_tutorial_with_examples}, where you may find many examples of \LaTeX constructs, such as Sectioning, inserting Figures and Tables, writing Equations, Theorems and algorithms, exhibit code listings, etc.
+\subsection{Dasineura pyri (Bouché)}
+\label{sec:problem_pests_cecidomia}
 
-% section how_to_write_using_latex (end)
+\begin{figure}[htbp]
+  \centering
+  \subcaptionbox{\textit{Dasineura pyri} adult drawn from a microscope setting.\label{fig:dasineura}}%
+    {\includegraphics[width=0.55\linewidth]{dasineura}}%
+  \hfill  
+  \subcaptionbox{Damage on \textit{} The terminal leaves are severely distorted (arrowed).\label{fig:pear_rocha}}%
+    {\includegraphics[width=0.42\linewidth]{dasineura_effects}}%
+  \caption{\textit{Dasineura pyri} and its effects on \textit{Pyrus Communis}}
+  \label{fig:dasineura_figs}
+\end{figure}
+
+Dasineura is a genus of midges in the family Cecidomyiidae. 
+
+\subsubsection{Description}
+
+\begin{description}
+	\item [Adult] 2 to 3 mm. Black. In the female, the ovipositor is able to extend considerably (up to body length).
+	\item [Eggs] Reddish.
+	\item [Larva] 2 mm. Tapered at each end, pronounced tranverse segmentation, well-developed sternal spatula. Yellowish-white.
+\end{description}
+
+\subsubsection{Biology}
+
+\begin{description}
+	\item [Host plant] Pear
+	\item [Adult] Very short life.
+	\item [Fecundity] 30 eggs.
+	\item [Eggs] Time until hatching, 3 to 4 days.
+	\item [Larva] Time until pupation: 10 to 12 days
+\end{description}
+
+\subsubsection{Life Cycle}
+
+3 to 6 generations per year. The adults appear in the spring, mate and lay eggs the same day. The female deposits the eggs on the underside of the still-furled leaf edges. The larva discharges saliva containing an auxin-related toxic substance over the leaves enabling it to feed on the cell contents. Some of the larvae pupate within the curled-up leaf, others fall to the ground, bury themselves and undergo diapause in a cocoon. Pupation begins in March.
+
+\subsubsection{Damage}
+
+The young leaves of attacked shoots remain curled up longitudinally. The leaf blade thickens considerably, becoming rigid and brittle. The 2nd and 3rd generations cause the greatest damage since they occur when shoot vigour and the formation of young leaves is most prolific.
+
+\subsubsection{Monitoring}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\linewidth]{dasineura_monitoring}
+  \caption{Chromotropic trap made of adhesive sheet}
+  \label{fig:dasineura_monitoring}
+\end{figure}
+
+Risk estimation for the Dasineura pyri pest is calculated based on the visual observation of damages on fruits, by sampling 100 sprouts in 50 trees from April to June. The economic level of attack is 15\% for saplings (young trees) and 50\% for adult trees.
+
+Biological observations should monitor five sprouts (apples or pears) in 20 trees spread across the field. Observations should happen weekly between sprouting and late July.
+
+Adult captures are usually performed with chromotropic traps as seen in figure \ref{fig:dasineura_monitoring}.  The chromotropic traps are adhesive sheets made of stiff and resistant plastic, with its two sides covered by a high-quality dry glue, water resistant, with no toxic substances and high-temperatures resistant.
+
+\subsection{Aphanostigma pyri - Pear phylloxera}
+\label{sec:problem_pests_filoxera}
+
+\begin{figure}[htbp]
+  \centering
+  \subcaptionbox{\textit{Aphanostigma pyri} specimen.\label{fig:aphanostigma}}%
+    {\includegraphics[width=0.45\linewidth]{aphanostigma}}%
+  \hfill
+  \subcaptionbox{Colony in the spring. Females, eggs and young nymphs.\label{fig:aphanostigma_effects}}%
+    {\includegraphics[width=0.5\linewidth]{aphanostigma_effects}}%
+  \caption{\textit{Aphanostigma pyri} specimen and colony}
+  \label{fig:dasineura_figs}
+\end{figure}
+
+\subsubsection{Description}
+
+The insect is a holocyclic phylloxerid with the following biological phases:
+\begin{itemize}
+	\item Virginiparae and sexuparous females of piriform shape, whitish or lemon yellow with a length of 0.8-1.0 mm with well developed piercing-sucking mouthparts.
+	\item Smaller (about 0.5 mm) sexuales with no mouthparts, ovoid in form.
+	\item Eggs of sexuparae of a yellow green colour.
+	\item Winter eggs with a diameter of 0.3 mm.
+\end{itemize}
+
+\subsubsection{Biology}
+
+ The host is pear. Most attacked cultivars are, in Portugal, Passe Crassane, Comice, Douillard and Rocha. Other varieties are also attacked but less seriously.
+
+\subsubsection{Life Cycle}
+
+The complete life-cycle is as follows: virginiparous females hatch from winter eggs giving rise to several generations of identical types of female. Sexuparae appear in September. These lay male and female eggs from which, in the autumn, the sexuales emerge. After mating these lay the winter eggs.
+
+In Portugal it is not known if the complete life-cycle, as described, occurs every year. No winter eggs have been found in certain areas. The overwintering form being then the parthenogenetic female.
+
+\subsubsection{Damage}
+In August sexuparae take shelter in the apical growth especially on those of late varieties where this area does not close completely. The feeding activity of these females produces large black areas on the fruit.
+
+These black areas will appear, sometimes on other parts of the fruit, for instance where a leaf or fruit touches another fruit. Occasionally the black lesions will occur in the peduncular groove.
+
+The commercial value of the damaged fruits will be severely reduced, often by 50\% to 60\%. The damage may occur:
+\begin{itemize}
+	\item During the maturation period, on the tree.
+	\item During the cold storage together with the lesions caused by storage rots.
+\end{itemize}
+
+\subsubsection{Monitoring}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\linewidth]{aphanostigma_monitoring_1}
+  \caption{WURTH Adhesive tape in a branch}
+  \label{fig:aphanostigma_monitoring}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \subcaptionbox{\textit{Aphanostigma pyri} trap made of \textit{WURTH} adhesive tape.\label{fig:aphanostigma_monitoring_2}}%
+    {\includegraphics[width=0.47\linewidth]{aphanostigma_monitoring_2}}%
+  \hfill
+  \subcaptionbox{Trap under analysis in lab. \label{fig:aphanostigma_monitoring_3}}%
+    {\includegraphics[width=0.47\linewidth]{aphanostigma_monitoring_3}}%
+  \caption{\textit{Aphanostigma pyri} trap being analised in laboratory.}
+  \label{fig:cydia_figs}
+\end{figure}
+
+Since different life cycles have been found, biological observations should provide risk estimations but, also answer some questions on how exactly how the species behaves, requirement for the FitoAgro project.
+
+\begin{itemize}
+	\item First appearance of the virginiparous females
+	\item Migration to the fruit
+	\item Descent from the fruit to the tree trunk
+\end{itemize}
+
+These moments above present key changes in the life cycle of this species, so they will be tracked by registering the presence of specimens in the tree trunk, branches, twigs and fruit.
+
+The observation method is, to the say the least, interestic. WURTH Adhesive tape is used along with flannel patches, vaseline and plastic sheets. 
+
+\begin{enumerate}
+	\item Adhesive tape on trunk and two branches (opposing directions)
+	\item Adhesive tape on four twigs with fruit.
+	\item Fruit monitoring before harvest. Three fruits from random trees, plus three fruits from trees that were tracked during that season.
+	\item Fruit monitoring during harvest - Five fruits from each of ten random trees, plus five fruits from each of ten tree that were tracked during that season. Cut fruit through the middle to test presence of specimens.
+	\item Flannel patches after harvesting until next season. By april, apply vaseline on the flannel patches.
+\end{enumerate}
 
 
+\subsection{Cydia Pomonella - Codling moth}
 
-\section{Exmaple glossary and acronyms}
-%
-% \todo[inline]{A a note in a line by itself.}
-%
-This is the first occurrence of an abbreviation: \gls{abbrev}. And now the second occurrence of the same abbreviation: \gls{abbrev}. And a new acronym with capital letter: \Gls{xpt} and reused \gls{xpt}.  Let's also use a few other acronyms such as \gls{aaa}, \gls{aab}, \gls{aba}, \gls{bbb} and \gls{xpt}.
+\begin{figure}[htbp]
+  \centering
+  \subcaptionbox{\textit{Cydia Pomonella} adult.\label{fig:cydia}}%
+    {\includegraphics[width=0.5\linewidth]{cydia}}%
+  \hfill
+  \subcaptionbox{Second instar larva. Devouring the pips in the carpellary cavity.\label{fig:cydia_effects}}%
+    {\includegraphics[width=0.4\linewidth]{cydia_effects}}%
+  \caption{\textit{Cydia pomonella} adult and larva phases.}
+  \label{fig:cydia_figs}
+\end{figure}
+
+\subsubsection{Description}
+
+\begin{description}
+	\item [Adult] Wingspan 16 to 19 mm. Very obvious and characteristic brown oval marking, surrounded by 2 shiny golden brown lines, tending towards the bronze, on the grey fore wings. Hind wings reddish brown, delicately ciliated.
+	\item [Eggs] 1 mm diameter. Circular, flattened, slightly swollen in the middle. Laid singly on the upper side of the leaf, on the fruit or twig. Milky-white at first, then, a few days later, with presence of a reddish ring at the periphery.
+	\item [Larva] 16 to 20 mm. Head dark brown; body pale pink to reddish. Abdominal prolegs, anal prolegs.
+	\item [Pupa] 10 to 12 mm. Yellow-brown to dark brown. Occuring in silky cocoon.
+\end{description}
+
+\subsubsection{Biology}
+
+\begin{description}
+	\item [Host plants] Apricot, quince, walnut, pear, apple and sometimes peach and plum.
+	\item [Adult] Medium longevity, 15 to 18 days. Active during the day at temperatures of > 15°C.
+	\item [Fecundity] 30 to 50 eggs, on average.
+	\item [Eggs] Time until hatching, 18 days at 15°C, and 6 at 25°C.
+	\item [Larva] Developmental duration, 20 to 30 days.
+	\item [Pupa] Developmental duration, 20 to 28 days.
+\end{description}
+
+\subsubsection{Life Cycle}
+
+The eggs hatch at the end of May. The caterpillar first undergoes a so-called "wandering stage" (2 to 5 days). After a couple of exploratory bites, it penetrates a fruit where a second fruit or a leaf is touching, or at the stalk or stalk-eye. When development is completed, it leaves the fruit and weaves a cocoon in a sheltered spot. From then onwards, two developmental routes are possible: it will either pupate and give rise to a 2nd-generation of moth, or enter diapause. The caterpillars that become fully fed from August to October all enter diapause. They overwinter in cocoons hidden in cracks in the tree-trunk or in a natural shelter on the soil.
+
+Pupation in April. The adults emerge at the end of April, beginning of May. They mate and lay the eggs on leaves, twigs, or young fruits.
+
+\subsubsection{Damage}
+
+On pomaceous fruit, around the entrance hole made by the young larva, a gnawed area, followed by a spiral gallery leading down to the pips which the caterpillar also eats. On walnuts, the caterpillar burrows through the husk to the kernel; when the latter hardens, it leaves by the hilum or remains in the husk. The bite marks on the damaged fruit makes them impossible to sell. Damaged fruit drops prematurely.
+Late or seasonal varieties of pear are not very susceptible to the 1st generation because their epidermis is hard.
+
+\subsubsection{Monitoring}
+
+Biological observations should monitor fifty fruits per tree on a total of twenty trees spread randomly across the farming field. Observations should occur once per week. 
+
+Risk estimation for the Cydia pomonella pest is calculated based on the visual observation of damages on fruits. The attack percentage is the percentage of attacked fruits in a total sample of one thousand fruits. 
+
+Capturing is achieved by releasing sexual pheromones inside a trap as seen in figure \ref{fig:cydia_monitoring}. Number of caught specimens should be recorded, the trap cleaned and set up for the next week.
 
 
-Lets add the term ``\gls{computer}'' to the glossary!
-%
-% Please note that
-% \begin{center}
-%   \textbf{\large this package and template are not official for FCT/NOVA}.
-% \end{center}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\linewidth]{cydia_monitoring}
+  \caption{Sexual pheromone trap for \textit{Cydia Pomonella}}
+  \label{fig:cydia_monitoring}
+\end{figure}
+
+\subsection{Quadraspidiotus perniciosus}
+
+\begin{figure}[htbp]
+  \centering
+  \subcaptionbox{\textit{Quadraspidiotus perniciosus} male and female individuals. The scale of the female was turned upside down to show the colour of the body of the female. Young nymphs can be seen (arrowed).\label{fig:quadraspidiotus}}%
+    {\includegraphics[width=0.47\linewidth]{quadraspidiotus}}%
+  \hfill
+  \subcaptionbox{Damage on pear. The change in colour of the epidermis is due to the presence of scale insects. Figure from Hyppz \cite{AlainFraval} \label{fig:quadraspidiotus_effects}}%
+    {\includegraphics[width=0.47\linewidth]{quadraspidiotus_effects}}%
+  \caption{\textit{Quadraspidiotus perniciosus} male, female and effects on product.}
+  \label{fig:quadraspidiotus_figs}
+\end{figure}
+
+\subsubsection{Description}
+
+\begin{description}
+	\item [Adult] Female apterous, pear-shaped, flattened, fixed to the plant and hidden under a detachable scale. Scale circular, dark grey, about 2 mm across. Males provided with a pair of wings.
+	\item [Nymph] Young nymph mobile, yellow, provided with 3 pairs of short legs. Once fixed, secretes a white scale which becomes grey and finally black.
+\end{description}
+
+\subsubsection{Biology}
+
+Also know as Cochonilha, \textit{Quadraspidiotus perniciosus} is very polyphagous and develops on more than 150 species of host, especially on apple, pear, plum, peach, cherry, currant, black currant.
+
+Nymphs overwinter during the 1st instar in a state of diapause. After moulting twice (in March and May), they emerge either as males or females. Females are viviparous and each produces 8-10 nymphs per day from late May onwards, the egg-laying period spreading over 6 weeks. The average number of nymphs produced on a favorable host plant is 400.
+
+Nymphs are at first mobile and then settle down by inserting their stylets into plant cells. They produce encrustations on twigs, branches and sometimes on leaves and fruits.
+
+\subsubsection{Life Cycle}
+
+There are 2-4 generations depending on the region. As soon as winter approaches, first generation nymphs enter a state of diapause. Very young and second-generation nymphs as well as adults, die.
+
+\subsubsection{Damage}
+
+Feed by these insects, when they inject toxic saliva, leads to a distortion of plant tissue, the premature dropping of leaves and the discoloration of the fruits' epidermis as well as the decline of affected twigs and branches.
+A specific parasite of this pest, Prospaltella perniciosi, has been introduced in some studies to fight against this scale insect.
+
+\subsubsection{Monitoring}
+
+Risk estimation for the Quadraspidiotus perniciosus pest is calculated based on the visual observation of branches and twigs. Percentage of attacked fruits in a total sample of one hundred fruits is the attack percentage. 
+
+Biological observations are performed with sticky pads (seen in figure \ref{fig:quadraspidiotus_monitoring}) and should monitor five twigs per tree on a total of twenty trees spread randomly across the farming field. Observations should occur once per week by registering whether the twigs show symptoms of the insect or not. After renewal of the traps, these are sent to laboratory for species determination and counting.
+
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\linewidth]{quadraspidiotus_monitoring}
+  \caption{Sampling of \textit{Quadraspidiotus perniciosus} males on a sticky pad.}
+  \label{fig:quadraspidiotus_monitoring}
+\end{figure}
+
+\section{Data Collection}
+\label{sec:problem_data_collection}
+
+Most of the farmers and agronomists have worked in the very same fields their whole life so they know where specific events happen: the spots with less solar exposure, the irrigation defects and details, the places where water leaks, the spots with pest occurrences, the phenological cycles, the history of the field, etc. Mentally or using non-appropriate registering methodologies, they track the field variables without a proper tool.
+
+As agricultural teams grow bigger, some information is registered to be consulted by all team members (or to keep an history). But even then, data is manually added to a spreadsheet, being Google drive the common sharing pattern among the "more advanced" cooperatives and farming companies (information from a FitoAgro project meeting).
+
+Processing all this information requires precise and normalized inputs. This will be the main focus of this dissertation: Gathering the available data from the field to the server in an effortless and consistent way.
+
+Even if out of the scope of this work, it is studied mostly in the state of the art, how it would be possible to fully automate the biological counting and analysis of the known enemy species by crop. Since this presents a significant problem by itself (a device that counts and analysis automatically the pests per tree that needs low to no maintenance), pseudo-automated data-collection is the closest path to ideal data-collection. Pseudo-automated data collection meaning that humans will play a key role in the registering of occurrences but some extra processing should be done in the background to ease out the task for the user.
